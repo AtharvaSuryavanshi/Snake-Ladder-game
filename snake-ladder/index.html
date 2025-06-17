@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snake & Ladder Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Setup Screen -->
+  <div class="container" id="setupScreen">
+    <h1>🎲 Snake & Ladder</h1>
+    <p>Set up your game and start the adventure!</p>
+    <div class="section">
+      <label>👥 Number of Players</label>
+      <div class="player-buttons" id="playerCountButtons">
+        <button class="player-btn" data-count="1">1</button>
+        <button class="player-btn active" data-count="2">2</button>
+        <button class="player-btn" data-count="3">3</button>
+        <button class="player-btn" data-count="4">4</button>
+      </div>
+    </div>
+    <div class="section" id="nameInputs">
+      <label>👤 Player Names</label>
+      <div class="input-group"><span style="background:red;"></span><input type="text" placeholder="Player 1 name"></div>
+      <div class="input-group"><span style="background:dodgerblue;"></span><input type="text" placeholder="Player 2 name"></div>
+    </div>
+    <div class="section" id="botInfo" style="display: none;">🤖 You'll play against Bot!</div>
+    <button class="start-btn" id="startGameBtn">▶ Start Adventure</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div class="game-wrapper" id="gameScreen" style="display: none;">
+    <div class="top-bar">
+      <h1>🐍 Snake & Ladder</h1>
+      <div class="menu">
+        <button id="menuBtn">☰</button>
+        <div class="menu-options" id="menuOptions" style="display: none;">
+          <button onclick="location.reload()">🔄 Reset Game</button>
+          <button onclick="pauseGame()">⏸ Pause</button>
+          <button onclick="resumeGame()">▶ Resume</button>
+          <button onclick="exitGame()">❌ Exit</button>
+        </div>
+      </div>
+    </div>
+    <div class="game-container">
+      <div class="board" id="board"></div>
+      <div class="sidebar">
+        <div class="players" id="playersInfo"></div>
+        <div class="controls">
+          <div class="current-player">🎯 Current Player: <span id="currentPlayer">-</span></div>
+          <div id="diceResult">Click "Roll Dice" to start!</div>
+          <button id="rollDice">🎲 Roll Dice</button>
+          <div class="stats">
+            <p>⏱ Game Time: <span id="gameTime">00:00</span></p>
+            <p>🔁 Total Moves: <span id="moveCount">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
